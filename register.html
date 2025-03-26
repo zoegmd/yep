@@ -6,9 +6,9 @@
     <title>Login</title>
     <style>
         body {
-            background-color: white;
+            background-color: #f4f4f4;
             color: black;
-            font-family: sans-serif;
+            font-family: Arial, sans-serif;
             text-align: center;
             height: 100vh;
             display: flex;
@@ -33,17 +33,24 @@
     <h1>Login</h1>
     <input type="text" id="username" placeholder="Username">
     <input type="password" id="password" placeholder="Password">
-    <button onclick="saveUser()">Login</button>
+    <button onclick="login()">Login</button>
 
     <script>
-        function saveUser() {
+        function login() {
             let user = document.getElementById('username').value;
             let pass = document.getElementById('password').value;
-            localStorage.setItem('usr', btoa(user));
-            localStorage.setItem('pwd', btoa(pass));
-            window.location.href = 'https://coolcubegame.vercel.app';
+
+            if (user && pass) {
+                // Simulate storing data (you'd ideally send this to a backend)
+                localStorage.setItem('usr', btoa(user));
+                localStorage.setItem('pwd', btoa(pass));
+
+                // Redirect to the saved data page
+                window.location.href = 'savedatas.html';
+            } else {
+                alert('Please fill in both fields');
+            }
         }
     </script>
 </body>
 </html>
-

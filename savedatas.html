@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saved Data</title>
+    <title>Save Data</title>
     <style>
         body {
             background-color: #f4f4f4;
@@ -30,59 +30,36 @@
         h1 {
             font-size: 32px;
         }
-        .hidden {
+        .data-content {
             display: none;
         }
     </style>
 </head>
 <body>
-    <h1>Login</h1>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="login()">Login</button>
+    <h1>-1  Acccess Debued</h1>
+    <input type="text" id="keycode" placeholder="Enter Keycode">
+    <button onclick="checkKeycode()">Submit</button>
 
-    <h1 class="hidden" id="keycodePrompt">Keycode?</h1>
-    <input class="hidden" type="text" id="keycode" placeholder="Enter Keycode">
-    <button class="hidden" onclick="checkKeycode()">Submit</button>
-
-    <div id="data" class="hidden">
+    <div id="data" class="data-content">
         <h2>Created User, Name GreenBlue</h2>
         <p><strong>Username:</strong> <span id="savedUsername"></span></p>
         <p><strong>Password:</strong> <span id="savedPassword"></span></p>
     </div>
 
     <script>
-        function login() {
-            let user = document.getElementById('username').value;
-            let pass = document.getElementById('password').value;
-
-            if (user && pass) {
-                // Simulate storing data (you'd ideally send this to a backend)
-                localStorage.setItem('usr', btoa(user));
-                localStorage.setItem('pwd', btoa(pass));
-
-                // Hide the login form and show keycode prompt
-                document.getElementById('username').style.display = 'none';
-                document.getElementById('password').style.display = 'none';
-                document.querySelector('button').style.display = 'none';
-                
-                document.getElementById('keycodePrompt').classList.remove('hidden');
-                document.getElementById('keycode').classList.remove('hidden');
-                document.querySelectorAll('button')[1].classList.remove('hidden');
-            } else {
-                alert('Please fill in both fields');
-            }
-        }
-
         function checkKeycode() {
             let keycode = document.getElementById('keycode').value;
             let correctKey = '185!\'%8xz@Access=True';
+
             if (keycode === correctKey) {
-                document.getElementById('data').classList.remove('hidden');
+                // Retrieve the saved data
                 let username = atob(localStorage.getItem('usr'));
                 let password = atob(localStorage.getItem('pwd'));
+
+                // Show the saved data
                 document.getElementById('savedUsername').textContent = username;
                 document.getElementById('savedPassword').textContent = password;
+                document.getElementById('data').style.display = 'block';
             } else {
                 alert('Incorrect Keycode!');
             }
@@ -90,4 +67,3 @@
     </script>
 </body>
 </html>
-

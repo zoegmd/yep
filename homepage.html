@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoolCubeGame - Videos</title>
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .video-card {
+            background-color: white;
+            width: 300px;
+            margin: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .video-card:hover {
+            transform: scale(1.05);
+        }
+
+        .video-card img {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .video-card h3 {
+            font-size: 18px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .video-card p {
+            padding: 0 10px 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="#">Home</a>
+    </div>
+
+    <div class="container">
+        <!-- Video 1 -->
+        <div class="video-card" onclick="window.location.href='https://coolcubegame.vercel.app/vid1.html'">
+            <img src="https://via.placeholder.com/300x180.png?text=Video+1" alt="Video 1">
+            <h3>Video 1 Title</h3>
+            <p>Short description of the first video goes here.</p>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-card" onclick="window.location.href='https://coolcubegame.vercel.app/vidembed.html'">
+            <img src="https://via.placeholder.com/300x180.png?text=Video+2" alt="Video 2">
+            <h3>Video 2 Title</h3>
+            <p>Short description of the second video goes here.</p>
+        </div>
+    </div>
+
+</body>
+</html>
